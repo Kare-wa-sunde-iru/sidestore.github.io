@@ -38,25 +38,25 @@ else if (detectedOS.indexOf('win') != -1) detectedOS = 'windows';
 else detectedOS = 'mac';
 
 let setupStepContents = [
-  //download sideserver
+  //download altserver
   () =>
     `<b>To get started, you'll need:</b><ul class="list-disc list-inside"><li>${osW(
       'A Mac running macOS 10.15 or later',
       'A PC running Windows 10 or later',
       'A PC running Linux, of some sort'
     )}</li><li>An iCloud account (a burner account is recommended)</li><li>An Internet connection</li><li>An iPhone or iPad with iOS 14 or iPadOS 14 or later</li></ul><br>On your computer, download the following:<a class="btn-fill" target="_blank" href="${osW(
-      'https://github.com/SideStore/SideServer-macOS/releases/latest/download/SideServer.dmg',
-      'https://github.com/SideStore/SideServer-Windows/releases/latest/download/SideServer.Installer.zip'
-    )}">Download SideServer</a>${osW(
-      `Then, open the downloaded file and drag <code>SideServer.app</code> to your Applications folder. Now, open the app (you may have to right click and select "Open" if you get a warning).`,
-      `Then, extract the downloaded file and run <code>setup.exe</code> to install SideServer. You'll also need to install the non-Microsoft Store version of iTunes, and iCloud and uninstall the Microsoft Store versions if you have either installed.<div class="flex flex-wrap gap-2"><a class="btn-fill" href="https://support.apple.com/en-us/HT210384">Download iTunes</a><a class="btn-fill" href="https://updates.cdn-apple.com/2020/windows/001-39935-20200911-1A70AA56-F448-11EA-8CC0-99D41950005E/iCloudSetup.exe">Download iCloud</a></div>`
+      'https://cdn.altstore.io/file/altstore/altserver.zip',
+      'https://cdn.altstore.io/file/altstore/altinstaller.zip'
+    )}">Download AltServer</a>${osW(
+      `Then, open the downloaded file and drag <code>AltServer.app</code> to your Applications folder. Now, open the app (you may have to right click and select "Open" if you get a warning).`,
+      `Then, extract the downloaded file and run <code>setup.exe</code> to install AltServer. You'll also need to install the non-Microsoft Store version of iTunes, and iCloud and uninstall the Microsoft Store versions if you have either installed.<div class="flex flex-wrap gap-2"><a class="btn-fill" href="https://support.apple.com/en-us/HT210384">Download iTunes</a><a class="btn-fill" href="https://updates.cdn-apple.com/2020/windows/001-39935-20200911-1A70AA56-F448-11EA-8CC0-99D41950005E/iCloudSetup.exe">Download iCloud</a></div>`
     )}`,
   //sideload app
   (os) =>
-    `<b>Follow these steps to install SideStore:</b><ul class="list-disc list-inside"><li>Plug your device into your computer via a cable</li><li>Trust your computer on your device (if prompted)</li><li>${osW(
-      'Launch SideServer and pick <code>Install SideStore</code> from the SideServer icon in the menu bar',
-      'Right click on the SideServer tray icon, and pick <code>Install SideStore</code>'
-    )}</li><li>Follow the instructions until SideServer confirms that SideStore has been installed (you may need to enter your iCloud account login details)</li><li>If you are running iOS or iPadOS 16 or higher, you must enable Developer Mode to use sideloaded apps (this only shows up <b>after you sideload an app for the first time</b>)<ul class="list-decimal list-inside ml-4 sm:ml-6"><li>Open Settings</li><li>Tap “Privacy & Security”</li><li>Scroll to the bottom, and toggle Developer Mode on</li></ul></li><li>Open <code>Settings > General > VPN & Device Management</code> on your device</li> and approve the <code>Developer App</code> with your Apple ID's email.`,
+    `<b>Follow these steps to install SideStore:</b><ul class="list-disc list-inside"><a class="btn-fill" href="https://github.com/SideStore/SideStore/releases/latest/download/SideStore.ipa">Download SideStore IPA</a></div><li>Plug your device into your computer via a cable</li><li>Trust your computer on your device (if prompted)</li><li>${osW(
+      'Launch AltServer then hold shift and click on the AltServer tray icon. Click <code>Sideload .ipa</code>, and select the SideStore IPA file.',
+      'Lanch AtlServer then hold option/alt and click on the AltServer menu bar icon. Click <code>Sideload .ipa</code>, and select the SideStore IPA file'
+    )}</li><li>Follow the instructions until it confirms that SideStore has been installed (you may need to enter your iCloud account login details)</li><li>If you are running iOS or iPadOS 16 or higher, you must enable Developer Mode to use sideloaded apps (this only shows up <b>after you sideload an app for the first time</b>)<ul class="list-decimal list-inside ml-4 sm:ml-6"><li>Open Settings</li><li>Tap “Privacy & Security”</li><li>Scroll to the bottom, and toggle Developer Mode on</li></ul></li><li>Open <code>Settings > General > VPN & Device Management</code> on your device</li> and approve the <code>Developer App</code> with your Apple ID's email.`,
   //wireguard vpn
   () =>
     `On your device, you'll need to download the WireGuard VPN app.<a class="btn-fill" target="_blank" href="https://apps.apple.com/us/app/wireguard/id1441195209">Download WireGuard</a>After that, you'll need to import SideStore's WireGuard configuration. (Download the file and then you can "share" it to the WireGuard app).<a class="btn-fill" target="_blank" href="https://github.com/SideStore/SideStore/releases/download/0.1.1/SideStore.conf">Download WireGuard Config</a>You'll have to turn on the VPN every time you want to use SideStore to sideload apps. You can turn it off when you're done, and the VPN doesn't connect to an external server, as it operates on-device.`,
